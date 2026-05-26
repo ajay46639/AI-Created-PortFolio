@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APCREATIONZ - AI Vibe Coder | Developer Portfolio</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="APCREATIONZ: A modern AI developer portfolio showcasing projects, skills, and creative coding. Specializing in Python, Web Development, and AI tools.">
+    <meta name="keywords" content="APCREATIONZ, AI, developer, portfolio, Python, web development, JavaScript, HTML, CSS, creative coder, projects, skills, modern, futuristic">
+    <meta name="author" content="APCREATIONZ">
+    <meta property="og:title" content="APCREATIONZ - AI Vibe Coder | Developer Portfolio">
+    <meta property="og:description" content="APCREATIONZ: A modern AI developer portfolio showcasing projects, skills, and creative coding.">
+    <meta property="og:image" content="https://www.yourwebsite.com/images/og-image.jpg"> <!-- Placeholder for your OG image -->
+    <meta property="og:url" content="https://www.yourwebsite.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ajay46639.github.io/AI-Created-PortFolio/">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png"> <!-- Placeholder for your favicon -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Preload fonts if using custom ones for performance -->
+    <!-- <link rel="preload" href="fonts/your-font.woff2" as="font" type="font/woff2" crossorigin> -->
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="sticky-nav">
+        <div class="container">
+            <a href="#home" class="brand-logo">APCREATIONZ</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="background-elements">
+                <div class="animated-text large-blur">AI Vibe Coder</div>
+                <div class="animated-text medium-blur">Python Developer</div>
+                <div class="animated-text small-blur">Creative Builder</div>
+                <canvas id="particles-js"></canvas> <!-- Particle background -->
+                <div class="gradient-light light-one"></div>
+                <div class="gradient-light light-two"></div>
+            </div>
+            <div class="container hero-content">
+                <div class="hero-left reveal">
+                    <div class="profile-image-frame">
+                        <img src="images/profile-placeholder.jpg" alt="Profile Image" class="profile-image">
+                        <div class="image-glow"></div>
+                    </div>
+                </div>
+                <div class="hero-right reveal">
+                    <h1 class="faded-animated-text">
+                        <span class="role-static">I am a </span><br>
+                        <span id="typewriter-text" class="typewriter"></span><span class="cursor">|</span>
+                    </h1>
+                    <p class="intro-paragraph">Empowering innovation at the intersection of code, intelligence, and a futuristic vision. Crafting digital experiences that inspire and perform.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn primary-btn animated-btn">View Projects</a>
+                        <a href="#contact" class="btn secondary-btn animated-btn">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section container">
+            <h2 class="section-title reveal">About Me</h2>
+            <div class="about-content">
+                <div class="bio-card reveal">
+                    <h3>My Story</h3>
+                    <p>Hello! I'm APCREATIONZ, a passionate AI/Software Developer always eager to learn and build. My journey in tech started with a curiosity for how things work, evolving into a drive to create impactful and intelligent solutions. I thrive on challenges and constantly explore new technologies to push the boundaries of what's possible.</p>
+                    <p>I believe in clean code, robust design, and user-centric experiences. When I'm not coding, you can find me exploring new AI concepts, contributing to open-source projects, or diving deep into competitive programming. Let's build something amazing together!</p>
+                    <a href="APCREATIONZ_Resume.pdf" target="_blank" class="btn primary-btn small-btn mt-4">Download Resume</a> <!-- Placeholder for resume -->
+                </div>
+
+                <div class="timeline-card reveal">
+                    <h3>Learning Journey</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon"></div>
+                            <div class="timeline-content">
+                                <h4>2020 - Started Coding Journey</h4>
+                                <p>Discovered passion for programming with Python. Built first simple scripts and explored data structures.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon"></div>
+                            <div class="timeline-content">
+                                <h4>2021 - Web Development Dive</h4>
+                                <p>Mastered HTML, CSS, JavaScript. Developed responsive websites and interactive UIs.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon"></div>
+                            <div class="timeline-content">
+                                <h4>2022 - AI & Machine Learning Focus</h4>
+                                <p>Deep dived into AI/ML concepts, frameworks like TensorFlow/PyTorch. Completed several ML projects.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon"></div>
+                            <div class="timeline-content">
+                                <h4>2023 - Advanced Project Development</h4>
+                                <p>Led team projects, focused on full-stack development with AI integration. Enhanced problem-solving skills.</p>
+                            </div>
+                        </div>
+                        <!-- Add more timeline items as needed -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card reveal">
+                    <span class="stat-number" data-target="50">0</span>+
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-card reveal">
+                    <span class="stat-number" data-target="10">0</span>+
+                    <p>Technologies Mastered</p>
+                </div>
+                <div class="stat-card reveal">
+                    <span class="stat-number" data-target="5000">0</span>+
+                    <p>Hours of Learning</p>
+                </div>
+                <div class="stat-card reveal">
+                    <span class="stat-number" data-target="2">0</span>+
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section container">
+            <h2 class="section-title reveal">My Skills</h2>
+            <div class="skills-grid">
+                <!-- Programming -->
+                <div class="skill-category reveal">
+                    <h3>Programming</h3>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">Python</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">C++</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 70%;"></div></div>
+                    </div>
+                    <!-- Add more programming skills -->
+                </div>
+
+                <!-- Web Development -->
+                <div class="skill-category reveal">
+                    <h3>Web Development</h3>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">HTML5</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 98%;"></div></div>
+                    </div>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">CSS3</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">Responsive Design</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 92%;"></div></div>
+                    </div>
+                    <!-- Add more web development skills -->
+                </div>
+
+                <!-- Tools & Platforms -->
+                <div class="skill-category reveal">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">Git & GitHub</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">Docker</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 75%;"></div></div>
+                    </div>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">VS Code</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 95%;"></div></div>
+                    </div>
+                    <!-- Add more tools -->
+                </div>
+
+                <!-- AI & Machine Learning -->
+                <div class="skill-category reveal">
+                    <h3>AI & ML</h3>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">TensorFlow</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">PyTorch</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item glowing-card">
+                        <span class="skill-name">Data Analysis</span>
+                        <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;"></div></div>
+                    </div>
+                    <!-- Add more AI/ML skills -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section container">
+            <h2 class="section-title reveal">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card reveal">
+                    <img src="images/project1-placeholder.jpg" alt="Project 1" class="project-image">
+                    <div class="project-info">
+                        <h3>AI Chatbot Interface</h3>
+                        <p class="project-description">Developed a responsive web interface for an AI-powered chatbot, featuring real-time communication and custom theme support.</p>
+                        <div class="project-tech-stack">
+                            <span>Python</span><span>Flask</span><span>JavaScript</span><span>CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/your-username/project1" target="_blank" class="btn small-btn github-btn">GitHub</a>
+                            <a href="https://www.live-demo1.com" target="_blank" class="btn small-btn demo-btn">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card reveal">
+                    <img src="images/project2-placeholder.jpg" alt="Project 2" class="project-image">
+                    <div class="project-info">
+                        <h3>Machine Learning Dashboard</h3>
+                        <p class="project-description">Interactive dashboard to visualize machine learning model performance and data insights using modern charting libraries.</p>
+                        <div class="project-tech-stack">
+                            <span>Python</span><span>Streamlit</span><span>Plotly</span><span>Pandas</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/your-username/project2" target="_blank" class="btn small-btn github-btn">GitHub</a>
+                            <a href="https://www.live-demo2.com" target="_blank" class="btn small-btn demo-btn">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card reveal">
+                    <img src="images/project3-placeholder.jpg" alt="Project 3" class="project-image">
+                    <div class="project-info">
+                        <h3>Portfolio Website V1</h3>
+                        <p class="project-description">Designed and developed a minimalist personal portfolio website focusing on responsive design and subtle animations.</p>
+                        <div class="project-tech-stack">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/your-username/project3" target="_blank" class="btn small-btn github-btn">GitHub</a>
+                            <a href="https://www.live-demo3.com" target="_blank" class="btn small-btn demo-btn">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section container">
+            <h2 class="section-title reveal">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-form-card glassmorphism reveal">
+                    <h3>Send me a message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn animated-btn send-btn">Send Message</button>
+                    </form>
+                    <p id="form-status" class="form-status"></p>
+                </div>
+
+                <div class="social-links-card glassmorphism reveal">
+                    <h3>Connect with me</h3>
+                    <div class="social-links-grid">
+                        <a href="https://github.com/your-username" target="_blank" class="social-link" aria-label="GitHub">
+                            <img src="images/github-icon.svg" alt="GitHub"> <!-- Placeholder for icon -->
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/your-profile" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <img src="images/linkedin-icon.svg" alt="LinkedIn"> <!-- Placeholder for icon -->
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://instagram.com/your-profile" target="_blank" class="social-link" aria-label="Instagram">
+                            <img src="images/instagram-icon.svg" alt="Instagram"> <!-- Placeholder for icon -->
+                            <span>Instagram</span>
+                        </a>
+                        <a href="mailto:your.email@example.com" class="social-link" aria-label="Email">
+                            <img src="images/email-icon.svg" alt="Email"> <!-- Placeholder for icon -->
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 APCREATIONZ. Built with passion by APCREATIONZ.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+        &uarr;
+    </button>
+
+    <!-- External Libraries (Particles.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
