@@ -12,13 +12,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Configuration Variables (Easily editable) ---
     const config = {
-        roles: ["AI Vibe Coder", "Python Developer", "Creative Builder", "Data Scientist"],
+        roles: ["Python Developer", "Creative Builder", "AI Enthusiast"],
         typewriterSpeed: 100, // typing speed in ms
         typewriterDeleteSpeed: 50, // deleting speed in ms
         typewriterDelay: 2000, // delay before typing next role
-        parallaxIntensity: 20, // max px movement for parallax elements
+        parallaxIntensity: 26, // max px movement for parallax elements
         revealOffset: '10%', // Offset for Intersection Observer
-        emailServiceUrl: 'https://formspree.io/f/your_form_id', // Replace with your Formspree endpoint or other service
+        emailServiceUrl: 'https://formspree.io/f/xzdwkqvg',
         particlesConfig: { // Configuration for particles.js
             "particles": {
               "number": {
@@ -237,19 +237,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const profileImageFrame = document.querySelector('.profile-image-frame');
 
     if (heroSection && profileImageFrame) {
+        let targetX = 0;
+        let targetY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        let animationFrameId = null;
+
+        const animateProfile = () => {
+            currentX += (targetX - currentX) * 0.12;
+            currentY += (targetY - currentY) * 0.12;
+            profileImageFrame.style.transform = `translate(${currentX}px, ${currentY}px)`;
+
+            if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) {
+                animationFrameId = requestAnimationFrame(animateProfile);
+            } else {
+                currentX = targetX;
+                currentY = targetY;
+                profileImageFrame.style.transform = `translate(${currentX}px, ${currentY}px)`;
+                animationFrameId = null;
+            }
+        };
+
+        const queueAnimation = () => {
+            if (!animationFrameId) {
+                animationFrameId = requestAnimationFrame(animateProfile);
+            }
+        };
+
         heroSection.addEventListener('mousemove', (e) => {
             const rect = heroSection.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
 
-            const moveX = (e.clientX - centerX) / config.parallaxIntensity;
-            const moveY = (e.clientY - centerY) / config.parallaxIntensity;
-
-            profileImageFrame.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            targetX = (e.clientX - centerX) / config.parallaxIntensity;
+            targetY = (e.clientY - centerY) / config.parallaxIntensity;
+            queueAnimation();
         });
 
         heroSection.addEventListener('mouseleave', () => {
-            profileImageFrame.style.transform = 'translate(0, 0)'; // Reset on mouse leave
+            targetX = 0;
+            targetY = 0;
+            queueAnimation();
         });
     }
 
@@ -393,26 +421,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const formStatus = document.getElementById('form-status');
 
     if (contactForm) {
+        const submitButton = contactForm.querySelector('.send-btn');
+        const defaultButtonText = submitButton ? submitButton.textContent : '';
+
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            formStatus.textContent = 'Sending...';
+            formStatus.textContent = '';
             formStatus.classList.remove('success', 'error');
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.classList.add('is-loading');
+                submitButton.textContent = 'Sending...';
+            }
 
             const formData = new FormData(contactForm);
-            const object = {};
-            formData.forEach((value, key) => {
-                object[key] = value;
-            });
-            const json = JSON.stringify(object);
 
             try {
-                const response = await fetch(config.emailServiceUrl, {
-                    method: 'POST',
+                const response = await fetch(contactForm.action || config.emailServiceUrl, {
+                    method: contactForm.method || 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: json
+                    body: formData
                 });
 
                 if (response.ok) {
@@ -420,14 +450,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     formStatus.classList.add('success');
                     contactForm.reset();
                 } else {
-                    const data = await response.json();
-                    formStatus.textContent = data.errors ? data.errors.map(error => error.message).join(', ') : 'Failed to send message.';
+                    const data = await response.json().catch(() => null);
+                    formStatus.textContent = data?.errors ? data.errors.map(error => error.message).join(', ') : 'Unable to send message right now.';
                     formStatus.classList.add('error');
                 }
             } catch (error) {
-                formStatus.textContent = 'An error occurred. Please try again later.';
+                formStatus.textContent = 'Unable to send message right now.';
                 formStatus.classList.add('error');
                 console.error('Form submission error:', error);
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.classList.remove('is-loading');
+                    submitButton.textContent = defaultButtonText;
+                }
             }
         });
     }
