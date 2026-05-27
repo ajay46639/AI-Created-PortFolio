@@ -31,6 +31,10 @@
         <div class="loader"></div>
     </div>
 
+    <!-- Background System Glows -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
     <!-- Scroll Progress Indicator -->
     <div id="scroll-progress"></div>
 
@@ -60,32 +64,28 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero-section">
-            <div class="background-elements">
-                <div class="animated-text large-blur">AI Vibe Coder</div>
-                <div class="animated-text medium-blur">Python Developer</div>
-                <div class="animated-text small-blur">Creative Builder</div>
-                <canvas id="particles-js"></canvas> <!-- Particle background -->
-                <div class="gradient-light light-one"></div>
-                <div class="gradient-light light-two"></div>
-            </div>
-            <div class="container hero-content">
-                <div class="hero-left reveal">
-                    <div class="hero-intro-tag">
-                        <span>Hi, this is Ajay</span>
-                    </div>
-                    <div class="profile-image-frame">
-                        <img src="images/profile.jpg" alt="Profile Image" class="profile-image">
-                        <div class="image-glow"></div>
+            <div class="container hero-container">
+                <div class="hero-top reveal">
+                    <h2 class="hero-title">HI, THIS IS AJAY</h2>
+                    <div class="hero-desc-wrapper">
+                        <p class="hero-description">Empowering innovation at the intersection of code, intelligence, and a futuristic vision. Crafting digital experiences that inspire and perform.</p>
                     </div>
                 </div>
-                <div class="hero-right reveal">
-                    <h1 class="faded-animated-text">
-                        <span id="typewriter-text" class="typewriter"></span><span class="cursor">|</span>
-                    </h1>
-                    <p class="intro-paragraph">Empowering innovation at the intersection of code, intelligence, and a futuristic vision. Crafting digital experiences that inspire and perform.</p>
-                    <div class="cta-buttons">
-                        <a href="#projects" class="btn primary-btn animated-btn">View Projects</a>
-                        <a href="#contact" class="btn secondary-btn animated-btn">Contact Me</a>
+                <div class="hero-bottom reveal">
+                    <div class="hero-profile-area">
+                        <div class="profile-image-frame">
+                            <img src="images/profile.jpg" alt="Profile Image" class="profile-image">
+                            <div class="image-glow"></div>
+                        </div>
+                    </div>
+                    <div class="hero-info-area">
+                        <h1 class="role-text">
+                            I am a <span id="typewriter-text" class="typewriter"></span><span class="cursor">|</span>
+                        </h1>
+                        <div class="cta-buttons">
+                            <a href="#projects" class="btn primary-btn">View Projects</a>
+                            <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -104,8 +104,9 @@
 
                 <div class="timeline-card reveal">
                     <h3>Learning Journey</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
+                    <div class="timeline-scroll-container">
+                        <div class="timeline">
+                            <div class="timeline-item">
                             <div class="timeline-icon"></div>
                             <div class="timeline-content">
                                 <h4>2020 - Started Coding Journey</h4>
@@ -134,6 +135,7 @@
                             </div>
                         </div>
                         <!-- Add more timeline items as needed -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -164,130 +166,217 @@
             <div class="skills-grid">
                 <!-- Programming -->
                 <div class="skill-category reveal">
-                    <h3>Programming</h3>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">Python</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 95%;"></div></div>
+                    <div class="skill-category-header">
+                        <h3>Programming</h3>
+                        <i class="fas fa-chevron-down expand-icon"></i>
                     </div>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">JavaScript</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 85%;"></div></div>
+                    <div class="skill-items">
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">Python</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 95%;"></div></div>
+                        </div>
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">C++</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 70%;"></div></div>
+                        </div>
                     </div>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">C++</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 70%;"></div></div>
+                    <div class="skill-details">
+                        <p>Advanced proficiency in Python for automation and AI. Strong understanding of modern JavaScript (ES6+) and C++ for performance-critical tasks.</p>
+                        <div class="tech-tags">
+                            <span>NumPy</span><span>Pandas</span><span>Node.js</span><span>STL</span>
+                        </div>
                     </div>
-                    <!-- Add more programming skills -->
                 </div>
 
                 <!-- Web Development -->
                 <div class="skill-category reveal">
-                    <h3>Web Development</h3>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">HTML5</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 98%;"></div></div>
+                    <div class="skill-category-header">
+                        <h3>Web Development</h3>
+                        <i class="fas fa-chevron-down expand-icon"></i>
                     </div>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">CSS3</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;"></div></div>
+                    <div class="skill-items">
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">HTML5 & CSS3</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 98%;"></div></div>
+                        </div>
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">React</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 80%;"></div></div>
+                        </div>
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">Responsive Design</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 92%;"></div></div>
+                        </div>
                     </div>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">Responsive Design</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 92%;"></div></div>
+                    <div class="skill-details">
+                        <p>Building modern, high-performance web applications with a focus on user experience and futuristic aesthetics.</p>
+                        <div class="tech-tags">
+                            <span>SASS</span><span>Tailwind</span><span>Three.js</span><span>Vite</span>
+                        </div>
                     </div>
-                    <!-- Add more web development skills -->
-                </div>
-
-                <!-- Tools & Platforms -->
-                <div class="skill-category reveal">
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">Git & GitHub</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;"></div></div>
-                    </div>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">Docker</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 75%;"></div></div>
-                    </div>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">VS Code</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 95%;"></div></div>
-                    </div>
-                    <!-- Add more tools -->
                 </div>
 
                 <!-- AI & Machine Learning -->
                 <div class="skill-category reveal">
-                    <h3>AI & ML</h3>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">TensorFlow</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 85%;"></div></div>
+                    <div class="skill-category-header">
+                        <h3>AI & ML</h3>
+                        <i class="fas fa-chevron-down expand-icon"></i>
                     </div>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">PyTorch</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 80%;"></div></div>
+                    <div class="skill-items">
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">TensorFlow</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">PyTorch</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 80%;"></div></div>
+                        </div>
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">Computer Vision</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 75%;"></div></div>
+                        </div>
                     </div>
-                    <div class="skill-item glowing-card">
-                        <span class="skill-name">Data Analysis</span>
-                        <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;"></div></div>
+                    <div class="skill-details">
+                        <p>Specializing in deep learning and neural networks. Experienced in building and deploying intelligent systems.</p>
+                        <div class="tech-tags">
+                            <span>Keras</span><span>OpenCV</span><span>Scikit-learn</span><span>NLTK</span>
+                        </div>
                     </div>
-                    <!-- Add more AI/ML skills -->
+                </div>
+
+                <!-- Tools & Platforms -->
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <h3>Tools & Platforms</h3>
+                        <i class="fas fa-chevron-down expand-icon"></i>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">Git & GitHub</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">Docker</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 75%;"></div></div>
+                        </div>
+                        <div class="skill-item glowing-card">
+                            <span class="skill-name">Cloud (AWS/GCP)</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="width: 70%;"></div></div>
+                        </div>
+                    </div>
+                    <div class="skill-details">
+                        <p>Proficient in modern DevOps practices, containerization, and cloud infrastructure management.</p>
+                        <div class="tech-tags">
+                            <span>CI/CD</span><span>Linux</span><span>Kubernetes</span><span>Firebase</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Connecting Punchline -->
+        <section class="punchline-section reveal">
+            <div class="container">
+                <p class="punchline-text">Skills are the tools, but impact is the objective. I build solutions that bridge the gap between human intuition and machine intelligence.</p>
+            </div>
+        </section>
+
         <!-- Projects Section -->
-        <section id="projects" class="projects-section container">
-            <h2 class="section-title reveal">My Projects</h2>
-            <div class="projects-grid">
-                <!-- Project Card 1 -->
-                <div class="project-card reveal">
-                    <img src="images/project1-placeholder.jpg" alt="Project 1" class="project-image">
-                    <div class="project-info">
-                        <h3>AI Chatbot Interface</h3>
-                        <p class="project-description">Developed a responsive web interface for an AI-powered chatbot, featuring real-time communication and custom theme support.</p>
-                        <div class="project-tech-stack">
-                            <span>Python</span><span>Flask</span><span>JavaScript</span><span>CSS</span>
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title reveal">Featured Projects</h2>
+            </div>
+            
+            <div class="carousel-container reveal">
+                <div class="carousel-track">
+                    <!-- Project Card 1 -->
+                    <div class="project-card carousel-item">
+                        <div class="project-image-wrapper">
+                            <img src="images/project1-placeholder.jpg" alt="AI Chatbot Interface" class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" target="_blank" class="project-link-icon"><i class="fab fa-github"></i></a>
+                                    <a href="#" target="_blank" class="project-link-icon"><i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <a href="https://github.com/your-username/project1" target="_blank" class="btn small-btn github-btn">GitHub</a>
-                            <a href="https://www.live-demo1.com" target="_blank" class="btn small-btn demo-btn">Live Demo</a>
+                        <div class="project-info">
+                            <div class="project-tech-stack">
+                                <span>Python</span><span>Flask</span><span>AI</span>
+                            </div>
+                            <h3>AI Chatbot Interface</h3>
+                            <p>Advanced neural-link interface for real-time human-AI interaction.</p>
                         </div>
                     </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card carousel-item">
+                        <div class="project-image-wrapper">
+                            <img src="images/project2-placeholder.jpg" alt="ML Dashboard" class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" target="_blank" class="project-link-icon"><i class="fab fa-github"></i></a>
+                                    <a href="#" target="_blank" class="project-link-icon"><i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tech-stack">
+                                <span>Python</span><span>Streamlit</span><span>Data</span>
+                            </div>
+                            <h3>ML Analytics Dashboard</h3>
+                            <p>Predictive analytics platform with real-time data visualization.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card carousel-item">
+                        <div class="project-image-wrapper">
+                            <img src="images/project3-placeholder.jpg" alt="Portfolio V1" class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" target="_blank" class="project-link-icon"><i class="fab fa-github"></i></a>
+                                    <a href="#" target="_blank" class="project-link-icon"><i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tech-stack">
+                                <span>JS</span><span>Three.js</span><span>WebGL</span>
+                            </div>
+                            <h3>Neural Portfolio V1</h3>
+                            <p>First iteration of my immersive digital environment showcase.</p>
+                        </div>
+                    </div>
+
+                    <!-- Add more project cards if needed -->
                 </div>
 
-                <!-- Project Card 2 -->
-                <div class="project-card reveal">
-                    <img src="images/project2-placeholder.jpg" alt="Project 2" class="project-image">
-                    <div class="project-info">
-                        <h3>Machine Learning Dashboard</h3>
-                        <p class="project-description">Interactive dashboard to visualize machine learning model performance and data insights using modern charting libraries.</p>
-                        <div class="project-tech-stack">
-                            <span>Python</span><span>Streamlit</span><span>Plotly</span><span>Pandas</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/your-username/project2" target="_blank" class="btn small-btn github-btn">GitHub</a>
-                            <a href="https://www.live-demo2.com" target="_blank" class="btn small-btn demo-btn">Live Demo</a>
-                        </div>
-                    </div>
+                <!-- Carousel Controls -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" aria-label="Previous Project">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn" aria-label="Next Project">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
+                
+                <!-- Pagination Dots -->
+                <div class="carousel-pagination"></div>
+            </div>
+        </section>
 
-                <!-- Project Card 3 -->
-                <div class="project-card reveal">
-                    <img src="images/project3-placeholder.jpg" alt="Project 3" class="project-image">
-                    <div class="project-info">
-                        <h3>Portfolio Website V1</h3>
-                        <p class="project-description">Designed and developed a minimalist personal portfolio website focusing on responsive design and subtle animations.</p>
-                        <div class="project-tech-stack">
-                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/your-username/project3" target="_blank" class="btn small-btn github-btn">GitHub</a>
-                            <a href="https://www.live-demo3.com" target="_blank" class="btn small-btn demo-btn">Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add more project cards as needed -->
+        <!-- CTA Section -->
+        <section class="cta-section reveal">
+            <div class="container">
+                <h2 class="cta-heading">Ready to architect the future?</h2>
+                <p class="cta-subheading">Whether it's AI integration or high-performance systems, let's build something meaningful.</p>
+                <a href="#contact" class="btn primary-btn">Start a Conversation</a>
             </div>
         </section>
 
@@ -343,7 +432,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 APCREATIONZ. Built with passion by APCREATIONZ.</p>
+            <p>© 2026 APCREATIONZ — Built with passion by Ajay Prajapati</p>
         </div>
     </footer>
 

@@ -205,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDeleting = false;
 
     function typeWriterEffect() {
+        if (!typewriterTextElement) return;
         const currentRole = config.roles[roleIndex];
         let displayText = currentRole.substring(0, charIndex);
         typewriterTextElement.textContent = displayText;
@@ -227,59 +228,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         setTimeout(typeWriterEffect, isDeleting ? config.typewriterDeleteSpeed : config.typewriterSpeed);
     }
-    if (typewriterTextElement) {
-        typeWriterEffect();
-    }
-
-
-    // --- Parallax Effect (Hero Profile Image) ---
-    const heroSection = document.querySelector('.hero-section');
-    const profileImageFrame = document.querySelector('.profile-image-frame');
-
-    if (heroSection && profileImageFrame) {
-        let targetX = 0;
-        let targetY = 0;
-        let currentX = 0;
-        let currentY = 0;
-        let animationFrameId = null;
-
-        const animateProfile = () => {
-            currentX += (targetX - currentX) * 0.12;
-            currentY += (targetY - currentY) * 0.12;
-            profileImageFrame.style.transform = `translate(${currentX}px, ${currentY}px)`;
-
-            if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) {
-                animationFrameId = requestAnimationFrame(animateProfile);
-            } else {
-                currentX = targetX;
-                currentY = targetY;
-                profileImageFrame.style.transform = `translate(${currentX}px, ${currentY}px)`;
-                animationFrameId = null;
-            }
-        };
-
-        const queueAnimation = () => {
-            if (!animationFrameId) {
-                animationFrameId = requestAnimationFrame(animateProfile);
-            }
-        };
-
-        heroSection.addEventListener('mousemove', (e) => {
-            const rect = heroSection.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-
-            targetX = (e.clientX - centerX) / config.parallaxIntensity;
-            targetY = (e.clientY - centerY) / config.parallaxIntensity;
-            queueAnimation();
-        });
-
-        heroSection.addEventListener('mouseleave', () => {
-            targetX = 0;
-            targetY = 0;
-            queueAnimation();
-        });
-    }
+    
+    typeWriterEffect();
 
     // --- Intersection Observer for Reveal Animations ---
     const revealElements = document.querySelectorAll('.reveal');
@@ -407,12 +357,88 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveNavLink();
 
 
-    // --- Particles.js Initialization ---
-    // Make sure particles.js script is loaded before this runs
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', config.particlesConfig);
-    } else {
-        console.warn('particles.js not found. Please ensure the script is loaded.');
+    // --- Project Carousel Logic ---
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const pagination = document.querySelector('.carousel-pagination');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        carouselItems.forEach((item, index) => {
+            item.classList.remove('active', 'prev', 'next');
+            
+            if (index === currentIndex) {
+                item.classList.add('active');
+            } else if (index === (currentIndex - 1 + carouselItems.length) % carouselItems.length) {
+                item.classList.add('prev');
+            } else if (index === (currentIndex + 1) % carouselItems.length) {
+                item.classList.add('next');
+            }
+        });
+
+        // Update pagination dots
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    if (carouselItems.length > 0) {
+        // Create dots
+        carouselItems.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+            pagination.appendChild(dot);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+            updateCarousel();
+        });
+
+        // Drag/Swipe Support
+        let startX = 0;
+        let isDragging = false;
+        const track = document.querySelector('.carousel-track');
+
+        const handleStart = (e) => {
+            isDragging = true;
+            startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+        };
+
+        const handleEnd = (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            const endX = e.type === 'touchend' ? e.changedTouches[0].clientX : e.clientX;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    currentIndex = (currentIndex + 1) % carouselItems.length;
+                } else {
+                    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+                }
+                updateCarousel();
+            }
+        };
+
+        track.addEventListener('mousedown', handleStart);
+        track.addEventListener('mouseup', handleEnd);
+        track.addEventListener('touchstart', handleStart);
+        track.addEventListener('touchend', handleEnd);
+
+        updateCarousel(); // Initial call
     }
 
 
