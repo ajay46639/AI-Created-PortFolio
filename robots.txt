@@ -1,12 +1,4 @@
-# robots.txt for APCREATIONZ Portfolio
-
-# Allow all web crawlers to access all content
 User-agent: *
 Allow: /
 
-# Exclude specific directories or files if needed (example)
-# Disallow: /admin/
-# Disallow: /temp/
-
-# Specify the path to your sitemap
-Sitemap: https://yourwebsite.com/sitemap.xml
+Sitemap: https://ajay46639.github.io/AI-Created-PortFolio/sitemap.xml
